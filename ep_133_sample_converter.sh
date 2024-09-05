@@ -61,7 +61,7 @@ arg-check() {
 convert_file() {
   INPUT_FILE=$1
   OUTPUT_FILE=${INPUT_FILE%.*}
-  sox $INPUT_FILE -c 1 -r 46875 -b 16 ${OUTPUT_FILE}_ep-133.wav speed 2.0
+  sox $INPUT_FILE -c 1 -r 46875 -b 16 ${OUTPUT_FILE}_ep-133.wav #speed 2.0
 }
 
 req-check
