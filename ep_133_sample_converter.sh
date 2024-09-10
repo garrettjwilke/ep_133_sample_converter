@@ -60,9 +60,15 @@ arg-check() {
 
 convert_file() {
   INPUT_FILE=$1
-  OUTPUT_FILE=${INPUT_FILE%.*}
-  sox $INPUT_FILE -c 1 -r 46875 -b 16 ${OUTPUT_FILE}_ep-133.wav #speed 2.0
+  TRIMMED_NAME=$(basename $INPUT_FILE)
+  OUTPUT_FILE=${TRIMMED_NAME%.*}
+  sox $INPUT_FILE -c 1 -r 46875 -b 16 converted/${OUTPUT_FILE}.wav #speed 2.0
 }
+
+if ! [ -d converted ]
+then
+  mkdir converted
+fi
 
 req-check
 arg-check $@
